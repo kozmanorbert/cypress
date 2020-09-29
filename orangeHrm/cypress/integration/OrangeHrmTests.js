@@ -7,7 +7,7 @@ describe ('Users Page', function() {
     })
 
     
-    it('Print all user', function() {   
+     it('Print all user', function() {   
 
         const loginPage = new LoginPage()
         const navigationBar = loginPage.clickLoginButton()     
@@ -20,7 +20,7 @@ describe ('Users Page', function() {
         const loginPage = new LoginPage()
         const navigationBar = loginPage.clickLoginButton()     
         const myInfoPage = navigationBar.navigateMyInfoPage()
-        cy.log(Cypress.env('firstName'))
+
         myInfoPage.getFirstNameField().should('have.value', Cypress.env('firstName'))
         myInfoPage.getLastNameField().should('have.value', Cypress.env('lastName'))
         myInfoPage.getMiddleNameField().should('have.value', Cypress.env('middleName'))
@@ -30,6 +30,15 @@ describe ('Users Page', function() {
         myInfoPage.getGenderField().should('contain', Cypress.env('gender'))
         myInfoPage.getNationalityField().should('contain', Cypress.env('nationality'))
         myInfoPage.getLicenseExpDateField().should('have.value', Cypress.env('licenseExpDate'))
-    })
+    }) 
+
+    it('Print Employee Claims', function() {   
+
+        const loginPage = new LoginPage()
+        const navigationBar = loginPage.clickLoginButton()     
+        const employeeClaimsPage = navigationBar.navigateEmployeeClaims()
+        employeeClaimsPage.checkRowNumber()
+        employeeClaimsPage.printAllExpenseClaimId()
+    }) 
 
    })
