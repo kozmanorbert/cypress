@@ -7,15 +7,15 @@ describe ('Users Page', function() {
     })
 
     
- /*    it('Print all user', function() {   
+    it('Print all user', function() {   
 
         const loginPage = new LoginPage()
         const navigationBar = loginPage.clickLoginButton()     
         const userPage = navigationBar.navigateUsersPage()
         userPage.printAllusername()
-    }) */
+    }) 
 
-    it('Secomn all user', function() {
+    it('Check My info', function() {
 
         const loginPage = new LoginPage()
         const navigationBar = loginPage.clickLoginButton()     
