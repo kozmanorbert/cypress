@@ -1,17 +1,33 @@
+import ProductDialogBox from '../pageObjects/ProductDialogBox'
+
 class ProductPage{
     constructor(){
-        this.description = Selector("div#short_description_content > p");
-        this.sizeDropDown = Selector(".attribute_select");
-        this.IncreaseQuantityButton = Selector(".icon-plus");
-        this.BlueColorButton = Selector("[name='Blue']");
-        this.AddToChartButton = Selector("button[name='Submit'] > span");
+        //description
+        cy.get("div#short_description_content > p").should('be.visible').as('description')
+        //sizeDropDown
+        cy.get(".attribute_select").should('be.visible').as('sizeDropDown')
+        //IncreaseQuantityButton
+        cy.get(".icon-plus").should('be.visible').as('IncreaseQuantityButton');
+        //blueColorButton
+        cy.get("[name='Blue']").should('be.visible').as('blueColorButton')
+        //addToChartButton
+        cy.get("button[name='Submit'] > span").should('be.visible').as('addToChartButton')
      }
 
-    async selectSizeM(){
-        const MSize = Selector("option[value='2']");
-        await t
-            .click(this.sizeDropDown)
-            .click(MSize);
+    selectSizeM(){
+        cy.get("@sizeDropDown").select("M")
+    }
+
+    clickBlueColorButton(){
+        cy.get("@blueColorButton").click()
+    } 
+    increaseQuantity(){
+        cy.get("@IncreaseQuantityButton").click()
+    }
+
+    clickAddToCartButton(){
+        cy.get("@addToChartButton").click()
+        return new ProductDialogBox
     }
 
     

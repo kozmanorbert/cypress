@@ -1,6 +1,14 @@
+import ProductPage from '../pageObjects/ProductPage'
+
 class TshirtsPage{
     constructor(){
-        this.fadedShortProductLink = Selector(".product-name[title='Faded Short Sleeve T-shirts']");
+        //fadedShortProductLink
+        cy.get(".product-name[title='Faded Short Sleeve T-shirts']").should('be.visible').as('fadedShortProductLink')
+    }
+
+    clickDadedShortProductLink(){
+        cy.get("@fadedShortProductLink").click()
+        return new ProductPage
     }
 }
 export default TshirtsPage

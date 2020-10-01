@@ -1,8 +1,27 @@
+import LoginPage from '../pageObjects/LoginPage'
+
 class OrderPage{
     constructor(){
-        this.productAttributes = Selector("td.cart_description > small:nth-of-type(2)");
-        this.totalPrice = Selector("#total_price");
-        this.proceedToCheckoutButton = Selector("a.standard-checkout > span");
+        //productAttributes
+        cy.get("td.cart_description > small:nth-of-type(2)").should('be.visible').as('productAttributes')
+        //totalPrice
+        cy.get("#total_price").should('be.visible').as('totalPrice')
+        //proceedToCheckoutButton
+        cy.get("a.standard-checkout > span").should('be.visible').as('proceedToCheckoutButton')
+    
+    }
+
+    getProductAttributes(){
+        return cy.get("@productAttributes")
+    }
+
+    getTotalPrice(){
+        return cy.get("@totalPrice")
+    }
+
+    clickProceedToCheckoutButton(){
+        cy.get("@proceedToCheckoutButton").click()
+        return new LoginPage
     }
 }
 

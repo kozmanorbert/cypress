@@ -6,7 +6,9 @@
   "dependencies": {
     "cypress": "^5.3.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "cypress-iframe": "^1.0.1"
+  },
   "scripts": {
     "test": "test"
   },

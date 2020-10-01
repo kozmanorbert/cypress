@@ -9,7 +9,7 @@ class HomePage{
     }
 
     createScreenshotInFirstElement(){
-        cy.get("@firstElementInPopularList").scrollTo('center', { ensureScrollable: false }).screenshot({ padding: 10 })
+        cy.get("@firstElementInPopularList").screenshot({ padding: 10 })
     }
 }
 

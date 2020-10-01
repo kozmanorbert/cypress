@@ -1,22 +1,33 @@
+import SearchPage from '../pageObjects/SearchPage'
+import TshirtsPage from '../pageObjects/TshirtsPage'
+
 class NavigationBar{
     constructor(){
-     this.logoImage = Selector("[alt='My Store']");
-     this.searchField = Selector("#search_query_top");
-     this.womenPageButton = Selector("a[title='Women']");
-
+        //logoImage
+        cy.get("[alt='My Store']").should('be.visible').as('logoImage')
+        //searchField
+        cy.get("#search_query_top").should('be.visible').as('searchField')
+        //searchButton
+        cy.get("[name='submit_search']").should('be.visible').as('searchButton')
+         //womenPageButton
+        cy.get("a[title='Women']").should('be.visible').as('womenPageButton') 
+        //tshirtLink
+        cy.get("ul.sf-menu .submenu-container [title='T-shirts']").as('tshirtLink') 
     }
 
-    async hoverWomenAndSelectTshirstLink(){
-        const tshirtLink = Selector("ul.sf-menu .submenu-container [title='T-shirts']")
-        await t
-            .hover(this.womenPageButton)
-            .click(tshirtLink);
+    hoverWomenAndSelectTshirstLink(){
+       cy.get("@womenPageButton")
+       cy.get("@tshirtLink").click({ force: true })
+       return new TshirtsPage
     }
 
-    async selectElementInSearchDorpDownWithName(name){
-        const dropDownList = Selector(".ac_results");
-        await t
-            .click(dropDownList.withText(name));
+    getSearcField(){
+        return cy.get("@searchField")
+    }
+
+    clickSearchButton(){
+        cy.get("@searchButton").click()
+        return new SearchPage
     }
 
 }
