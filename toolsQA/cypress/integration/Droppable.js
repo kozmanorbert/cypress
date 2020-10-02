@@ -1,4 +1,4 @@
-describe ('Users Page', function() {
+describe ('Drag and Drop', function() {
  
      it('Dropabble', function() {   
         cy.visit('/droppable', {failOnStatusCode: false})
