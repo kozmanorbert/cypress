@@ -4,9 +4,13 @@ import NavigationBar from '../pageObjects/NavigationBar'
 describe ('Users Page', function() {
     beforeEach(function(){
         cy.visit('/')
+        cy.fixture('orderTestData').then(function (orderTestData) {
+            this.orderTestData = orderTestData;
+          })
     })
-    
-    it('Create Screenshoot', function() {   
+
+  
+    it('Create a screenshot about the element with the girl in the red dress', function() {   
         const homePage = new HomePage
         homePage.createScreenshotInFirstElement()
     })
@@ -22,16 +26,7 @@ describe ('Users Page', function() {
     })
 
     it('Order test', function() {   
-        const productName = 'Faded Short Sleeve T-shirts';
-        const productAttributes = 'Blue, M';
-        const quantityNumber = '2';
-
-        const orderProductAttributes = 'Color : Blue, Size : M';
-        const orderTotalPrice = '$35.02';
-
-        const loginPageHeader = 'Authentication';
-        const createAccountText = 'Create an account';
-
+        
         const navigationBar = new NavigationBar
         const tshirtsPage = navigationBar.hoverWomenAndSelectTshirstLink()
 
@@ -41,16 +36,16 @@ describe ('Users Page', function() {
         productPage.increaseQuantity()
 
         const productDialogBox = productPage.clickAddToCartButton()
-        productDialogBox.getPrdouctTitle().should('have.text', productName)
-        productDialogBox.getProductAttributes().should('have.text', productAttributes)
-        productDialogBox.getQuantityNumber().should('have.text', quantityNumber)
+        productDialogBox.getPrdouctTitle().should('have.text', this.orderTestData.productDialogBoxData.productName)
+        productDialogBox.getProductAttributes().should('have.text', this.orderTestData.productDialogBoxData.productAttributes)
+        productDialogBox.getQuantityNumber().should('have.text', this.orderTestData.productDialogBoxData.quantityNumber)
 
         const orderPage = productDialogBox.clickProceedToCheckoutButton()
-        orderPage.getProductAttributes().should('have.text', orderProductAttributes)
-        orderPage.getTotalPrice().should('have.text', orderTotalPrice)
+        orderPage.getProductAttributes().should('have.text',  this.orderTestData.orderPageData.orderProductAttributes)
+        orderPage.getTotalPrice().should('have.text', this.orderTestData.orderPageData.orderTotalPrice)
         
         const loginPage = orderPage.clickProceedToCheckoutButton()
-        loginPage.getPageHeaderText().should('have.text', loginPageHeader)
-        loginPage.getCreateAnAccountText().should('have.text', createAccountText)
+        loginPage.getPageHeaderText().should('have.text', this.orderTestData.loginPageData.loginPageHeader)
+        loginPage.getCreateAnAccountText().should('have.text', this.orderTestData.loginPageData.createAccountText)
     })
 }) 

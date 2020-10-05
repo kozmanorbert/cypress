@@ -1,0 +1,17 @@
+{
+    "productDialogBoxData" : {
+       "productName" : "Faded Short Sleeve T-shirts",
+         "productAttributes" : "Blue, M",
+         "quantityNumber" : "2"
+    },
+
+    "orderPageData" : {
+         "orderProductAttributes" : "Color : Blue, Size : M",
+         "orderTotalPrice" : "$35.02"
+    },
+
+    "loginPageData" : {
+         "loginPageHeader" : "Authentication",
+         "createAccountText" : "Create an account"
+    }
+}
