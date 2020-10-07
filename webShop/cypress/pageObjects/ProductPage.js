@@ -7,9 +7,7 @@ class ProductPage{
         //sizeDropDown
         cy.get(".attribute_select").should('be.visible').as('sizeDropDown')
         //IncreaseQuantityButton
-        cy.get(".icon-plus").should('be.visible').as('IncreaseQuantityButton');
-        //blueColorButton
-        cy.get("[name='Blue']").should('be.visible').as('blueColorButton')
+        cy.get(".icon-plus").should('be.visible').as('IncreaseQuantityButton')
         //addToChartButton
         cy.get("button[name='Submit'] > span").should('be.visible').as('addToChartButton')
      }
@@ -19,7 +17,7 @@ class ProductPage{
     }
 
     clickBlueColorButton(){
-        cy.get("@blueColorButton").click()
+        cy.get("[name='Blue']").should('be.visible').click()
     } 
     increaseQuantity(){
         cy.get("@IncreaseQuantityButton").click()

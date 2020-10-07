@@ -6,7 +6,7 @@ class TshirtsPage{
         cy.get(".product-name[title='Faded Short Sleeve T-shirts']").should('be.visible').as('fadedShortProductLink')
     }
 
-    clickDadedShortProductLink(){
+    clickFadedShortProductLink(){
         cy.get("@fadedShortProductLink").click()
         return new ProductPage
     }
