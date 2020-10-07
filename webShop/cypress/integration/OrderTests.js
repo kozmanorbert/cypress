@@ -20,17 +20,14 @@ describe ('Order Tests', function() {
         productPage.increaseQuantity()
 
         const productDialogBox = productPage.clickAddToCartButton()
-        productDialogBox.getPrdouctTitle().should('have.text', this.orderTestData.fadedShortTestData.productName)
-        productDialogBox.getProductAttributes().should('have.text', this.orderTestData.fadedShortTestData.productAttributes)
-        productDialogBox.getQuantityNumber().should('have.text', this.orderTestData.fadedShortTestData.quantityNumber)
+        checkProductDialogBoxData(productDialogBox, this.orderTestData.fadedShortTestData)
 
         const orderPage = productDialogBox.clickProceedToCheckoutButton()
-        orderPage.getProductAttributes().should('have.text',  this.orderTestData.fadedShortTestData.orderProductAttributes)
-        orderPage.getTotalPrice().should('have.text', this.orderTestData.fadedShortTestData.orderTotalPrice)
+
+        checkOrderPageData(orderPage, this.orderTestData.fadedShortTestData)
         
         const loginPage = orderPage.clickProceedToCheckoutButton()
-        loginPage.getPageHeaderText().should('have.text', this.orderTestData.loginPageData.loginPageHeader)
-        loginPage.getCreateAnAccountText().should('have.text', this.orderTestData.loginPageData.createAccountText)
+        checkLoginPageData(loginPage, this.orderTestData)
     })
 
     
@@ -45,17 +42,14 @@ describe ('Order Tests', function() {
         productPage.increaseQuantity()
 
         const productDialogBox = productPage.clickAddToCartButton()
-        productDialogBox.getPrdouctTitle().should('have.text', this.orderTestData.blouseTestData.productName)
-        productDialogBox.getProductAttributes().should('have.text', this.orderTestData.blouseTestData.productAttributes)
-        productDialogBox.getQuantityNumber().should('have.text', this.orderTestData.blouseTestData.quantityNumber)
+        checkProductDialogBoxData(productDialogBox, this.orderTestData.blouseTestData)
+       
 
         const orderPage = productDialogBox.clickProceedToCheckoutButton()
-        orderPage.getProductAttributes().should('have.text',  this.orderTestData.blouseTestData.orderProductAttributes)
-        orderPage.getTotalPrice().should('have.text', this.orderTestData.blouseTestData.orderTotalPrice)
+        checkOrderPageData(orderPage, this.orderTestData.blouseTestData)
         
         const loginPage = orderPage.clickProceedToCheckoutButton()
-        loginPage.getPageHeaderText().should('have.text', this.orderTestData.loginPageData.loginPageHeader)
-        loginPage.getCreateAnAccountText().should('have.text', this.orderTestData.loginPageData.createAccountText)
+        checkLoginPageData(loginPage, this.orderTestData)
     })
 
     it('Printed Dress order test', function() {   
@@ -68,17 +62,13 @@ describe ('Order Tests', function() {
         productPage.increaseQuantity()
 
         const productDialogBox = productPage.clickAddToCartButton()
-        productDialogBox.getPrdouctTitle().should('have.text', this.orderTestData.printedDressTestData.productName)
-        productDialogBox.getProductAttributes().should('have.text', this.orderTestData.printedDressTestData.productAttributes)
-        productDialogBox.getQuantityNumber().should('have.text', this.orderTestData.printedDressTestData.quantityNumber)
+        checkProductDialogBoxData(productDialogBox, this.orderTestData.printedDressTestData)
 
         const orderPage = productDialogBox.clickProceedToCheckoutButton()
-        orderPage.getProductAttributes().should('have.text',  this.orderTestData.printedDressTestData.orderProductAttributes)
-        orderPage.getTotalPrice().should('have.text', this.orderTestData.printedDressTestData.orderTotalPrice)
+        checkOrderPageData(orderPage, this.orderTestData.printedDressTestData)
         
         const loginPage = orderPage.clickProceedToCheckoutButton()
-        loginPage.getPageHeaderText().should('have.text', this.orderTestData.loginPageData.loginPageHeader)
-        loginPage.getCreateAnAccountText().should('have.text', this.orderTestData.loginPageData.createAccountText)
+        checkLoginPageData(loginPage, this.orderTestData)
     })
 
     it('Printed Summer Dress order test', function() {   
@@ -91,17 +81,13 @@ describe ('Order Tests', function() {
         productPage.increaseQuantity()
 
         const productDialogBox = productPage.clickAddToCartButton()
-        productDialogBox.getPrdouctTitle().should('have.text', this.orderTestData.printedSummerDressTestData.productName)
-        productDialogBox.getProductAttributes().should('have.text', this.orderTestData.printedSummerDressTestData.productAttributes)
-        productDialogBox.getQuantityNumber().should('have.text', this.orderTestData.printedSummerDressTestData.quantityNumber)
+        checkProductDialogBoxData(productDialogBox, this.orderTestData.printedSummerDressTestData)
 
         const orderPage = productDialogBox.clickProceedToCheckoutButton()
-        orderPage.getProductAttributes().should('have.text',  this.orderTestData.printedSummerDressTestData.orderProductAttributes)
-        orderPage.getTotalPrice().should('have.text', this.orderTestData.printedSummerDressTestData.orderTotalPrice)
+        checkOrderPageData(orderPage, this.orderTestData.printedSummerDressTestData)
         
         const loginPage = orderPage.clickProceedToCheckoutButton()
-        loginPage.getPageHeaderText().should('have.text', this.orderTestData.loginPageData.loginPageHeader)
-        loginPage.getCreateAnAccountText().should('have.text', this.orderTestData.loginPageData.createAccountText)
+        checkLoginPageData(loginPage, this.orderTestData)
     })
 
     it('Printed Chiffon Dress order test', function() {   
@@ -114,16 +100,31 @@ describe ('Order Tests', function() {
         productPage.increaseQuantity()
 
         const productDialogBox = productPage.clickAddToCartButton()
-        productDialogBox.getPrdouctTitle().should('have.text', this.orderTestData.printedChiffonDressTestData.productName)
-        productDialogBox.getProductAttributes().should('have.text', this.orderTestData.printedChiffonDressTestData.productAttributes)
-        productDialogBox.getQuantityNumber().should('have.text', this.orderTestData.printedChiffonDressTestData.quantityNumber)
+        checkProductDialogBoxData(productDialogBox, this.orderTestData.printedChiffonDressTestData)
 
         const orderPage = productDialogBox.clickProceedToCheckoutButton()
-        orderPage.getProductAttributes().should('have.text',  this.orderTestData.printedChiffonDressTestData.orderProductAttributes)
-        orderPage.getTotalPrice().should('have.text', this.orderTestData.printedChiffonDressTestData.orderTotalPrice)
+        checkOrderPageData(orderPage, this.orderTestData.printedChiffonDressTestData)
         
         const loginPage = orderPage.clickProceedToCheckoutButton()
-        loginPage.getPageHeaderText().should('have.text', this.orderTestData.loginPageData.loginPageHeader)
-        loginPage.getCreateAnAccountText().should('have.text', this.orderTestData.loginPageData.createAccountText)
+        checkLoginPageData(loginPage, this.orderTestData)
     })
 }) 
+
+function checkProductDialogBoxData(page, testDataGroup) {
+
+    page.getPrdouctTitle().should('have.text', testDataGroup.productName)
+    page.getProductAttributes().should('have.text', testDataGroup.productAttributes)
+    page.getQuantityNumber().should('have.text', testDataGroup.quantityNumber)
+  }
+
+function checkOrderPageData(page, testDataGroup) {
+
+    page.getProductAttributes().should('have.text',  testDataGroup.orderProductAttributes)
+    page.getTotalPrice().should('have.text', testDataGroup.orderTotalPrice)
+  }
+
+function checkLoginPageData(page, testDataGroup) {
+
+    page.getPageHeaderText().should('have.text', testDataGroup.loginPageData.loginPageHeader)
+    page.getCreateAnAccountText().should('have.text', testDataGroup.loginPageData.createAccountText)
+} 
