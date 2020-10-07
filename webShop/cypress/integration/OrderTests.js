@@ -36,9 +36,10 @@ describe ('Order Tests', function() {
     
     it('Blouse order test', function() {   
         
-        const homePage = new HomePage
-        
-        const productPage = homePage.clickBlouseProduct()
+        const navigationBar = new NavigationBar
+        const blousePage = navigationBar.hoverWomenAndSelectBlousesLink()
+
+        const productPage = blousePage.clickBlouseProductLink()
         productPage.selectSizeM()
         
         productPage.increaseQuantity()
@@ -59,9 +60,10 @@ describe ('Order Tests', function() {
 
     it('Printed Dress order test', function() {   
         
-        const homePage = new HomePage
-        
-        const productPage = homePage.clickPrintedDressProduct()
+        const navigationBar = new NavigationBar
+        const casualDressesPage = navigationBar.hoverWomenAndSelectCasualDressLink()
+
+        const productPage = casualDressesPage.clickPrintedDressProductLink()
         productPage.selectSizeM()
         productPage.increaseQuantity()
 
@@ -81,9 +83,10 @@ describe ('Order Tests', function() {
 
     it('Printed Summer Dress order test', function() {   
         
-        const homePage = new HomePage
+        const navigationBar = new NavigationBar
+        const summerDressesPage = navigationBar.hoverWomenAndSelectSummerDressesLink()
 
-        const productPage = homePage.clickPrintedSummerDressProduct()
+        const productPage = summerDressesPage.clickPrintedSummerDressProductLink()
         productPage.selectSizeM()
         productPage.increaseQuantity()
 
@@ -103,9 +106,10 @@ describe ('Order Tests', function() {
 
     it('Printed Chiffon Dress order test', function() {   
         
-        const homePage = new HomePage
-        
-        const productPage = homePage.clickPrintedChiffonDressProduct()
+        const navigationBar = new NavigationBar
+        const summerDressesPage = navigationBar.hoverWomenAndSelectSummerDressesLink()
+
+        const productPage = summerDressesPage.clickPrintedChiffonDressProductLink()
         productPage.selectSizeM()
         productPage.increaseQuantity()
 

@@ -1,4 +1,4 @@
-import ProductPage from "./ProductPage"
+
 
 
 class HomePage{
@@ -6,7 +6,6 @@ class HomePage{
         //firstElementInPopularList
         cy.get('ul#homefeatured > li:nth-of-type(1)').should('be.visible').as('firstElementInPopularList')
         
-
         //blouseProduct
         cy.get("ul#homefeatured .right-block [title='Blouse']").as('blouseProduct')
 
@@ -22,26 +21,6 @@ class HomePage{
 
     createScreenshotInFirstElement(){
         cy.get("@firstElementInPopularList").screenshot({ padding: 10 })
-    }
-
-    clickBlouseProduct(){
-        cy.get("@blouseProduct").click()
-        return new ProductPage
-    }
-
-    clickPrintedDressProduct(){
-        cy.get("@printedDressProduct").click()
-        return new ProductPage
-    }
-
-    clickPrintedSummerDressProduct(){
-        cy.get("@printedSummerDressProduct").click()
-        return new ProductPage
-    }
-
-    clickPrintedChiffonDressProduct(){
-        cy.get("@printedChiffonDressProduct").click()
-        return new ProductPage
     }
     
 }

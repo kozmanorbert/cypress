@@ -1,5 +1,8 @@
 import SearchPage from '../pageObjects/SearchPage'
 import TshirtsPage from '../pageObjects/TshirtsPage'
+import BlousesPage from '../pageObjects/BlousesPage'
+import CasualDressesPage from '../pageObjects/CasualDressesPage'
+import SummerDressesPage from '../pageObjects/SummerDressesPage'
 
 class NavigationBar{
     constructor(){
@@ -13,7 +16,31 @@ class NavigationBar{
         cy.get("a[title='Women']").should('be.visible').as('womenPageButton') 
         //tshirtLink
         cy.get("ul.sf-menu .submenu-container [title='T-shirts']").as('tshirtLink') 
+        //blousesLink
+        cy.get("a[title='Blouses']").as('blousesLink') 
+        //casualDressLink
+        cy.get("ul.sf-menu .submenu-container ul [title='Casual Dresses']").as('casualDressLink') 
+        //summerDresses
+        cy.get("ul.sf-menu .submenu-container ul [title='Summer Dresses']").as('summerDresses')
     }
+
+    hoverWomenAndSelectSummerDressesLink(){
+        cy.get("@womenPageButton")
+        cy.get("@summerDresses").click({ force: true })
+        return new SummerDressesPage
+     }
+
+    hoverWomenAndSelectCasualDressLink(){
+        cy.get("@womenPageButton")
+        cy.get("@casualDressLink").click({ force: true })
+        return new CasualDressesPage
+     }
+
+    hoverWomenAndSelectBlousesLink(){
+        cy.get("@womenPageButton")
+        cy.get("@blousesLink").click({ force: true })
+        return new BlousesPage
+     }
 
     hoverWomenAndSelectTshirstLink(){
        cy.get("@womenPageButton")
