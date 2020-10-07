@@ -12,7 +12,7 @@ import NavigationBar from '../pageObjects/NavigationBar'
     })
 
     it("Search for 'blouse'", function() {   
-        const description = 'Short sleeved blouse with feminine draped sleeve detail.a'
+        const description = 'Short sleeved blouse with feminine draped sleeve detail.'
 
         const navigationBar = new NavigationBar
         navigationBar.getSearcField().type('blouse')
