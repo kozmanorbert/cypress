@@ -1,9 +1,11 @@
-import HomePage from '../pageObjects/HomePage'
 import NavigationBar from '../pageObjects/NavigationBar'
+var navigationBar
 
 describe ('Order Tests', function() {
     beforeEach(function(){
         cy.visit('/')
+         navigationBar = new NavigationBar
+        
         cy.fixture('orderTestData').then(function (orderTestData) {
             this.orderTestData = orderTestData;
           })
@@ -11,7 +13,6 @@ describe ('Order Tests', function() {
 
     it('Faded Short order test', function() {   
         
-        const navigationBar = new NavigationBar
         const tshirtsPage = navigationBar.hoverWomenAndSelectTshirstLink()
 
         const productPage = tshirtsPage.clickFadedShortProductLink()
@@ -23,7 +24,6 @@ describe ('Order Tests', function() {
         checkProductDialogBoxData(productDialogBox, this.orderTestData.fadedShortTestData)
 
         const orderPage = productDialogBox.clickProceedToCheckoutButton()
-
         checkOrderPageData(orderPage, this.orderTestData.fadedShortTestData)
         
         const loginPage = orderPage.clickProceedToCheckoutButton()
@@ -33,17 +33,14 @@ describe ('Order Tests', function() {
     
     it('Blouse order test', function() {   
         
-        const navigationBar = new NavigationBar
         const blousePage = navigationBar.hoverWomenAndSelectBlousesLink()
 
         const productPage = blousePage.clickBlouseProductLink()
         productPage.selectSizeM()
-        
         productPage.increaseQuantity()
 
         const productDialogBox = productPage.clickAddToCartButton()
         checkProductDialogBoxData(productDialogBox, this.orderTestData.blouseTestData)
-       
 
         const orderPage = productDialogBox.clickProceedToCheckoutButton()
         checkOrderPageData(orderPage, this.orderTestData.blouseTestData)
@@ -54,7 +51,6 @@ describe ('Order Tests', function() {
 
     it('Printed Dress order test', function() {   
         
-        const navigationBar = new NavigationBar
         const casualDressesPage = navigationBar.hoverWomenAndSelectCasualDressLink()
 
         const productPage = casualDressesPage.clickPrintedDressProductLink()
@@ -73,7 +69,6 @@ describe ('Order Tests', function() {
 
     it('Printed Summer Dress order test', function() {   
         
-        const navigationBar = new NavigationBar
         const summerDressesPage = navigationBar.hoverWomenAndSelectSummerDressesLink()
 
         const productPage = summerDressesPage.clickPrintedSummerDressProductLink()
@@ -91,8 +86,7 @@ describe ('Order Tests', function() {
     })
 
     it('Printed Chiffon Dress order test', function() {   
-        
-        const navigationBar = new NavigationBar
+
         const summerDressesPage = navigationBar.hoverWomenAndSelectSummerDressesLink()
 
         const productPage = summerDressesPage.clickPrintedChiffonDressProductLink()

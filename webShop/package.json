@@ -10,7 +10,8 @@
     "cypress-iframe": "^1.0.1"
   },
   "scripts": {
-    "test": "test"
+    "test": "npx cypress open",
+    "test headles": "npx cypress run"
   },
   "repository": {
     "type": "git",
