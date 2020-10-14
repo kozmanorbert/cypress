@@ -7,16 +7,14 @@
     "cypress": "^5.3.0"
   },
   "devDependencies": {
-    "cypress-iframe": "^1.0.1",
-    "mochawesome": "^6.1.1",
-    "mochawesome-merge": "^4.2.0",
-    "mochawesome-report-generator": "^5.1.0"
+    "@shelex/cypress-allure-plugin": "^1.8.3",
+    "cypress-iframe": "^1.0.1"
   },
   "scripts": {
-    "test": "npx cypress open",
-    "test headles": "npx cypress run",
-    "report": "npx cypress run --reporter mochawesome"
-    
+    "cy:run": "npx cypress run --config video=false --env allure=true",
+    "allure:generate": "allure generate allure-results --clean",
+    "allure:open": "allure open allure-report",
+    "test": "npx npm-run-all cy:run allure:generate allure:open"
   },
   "repository": {
     "type": "git",

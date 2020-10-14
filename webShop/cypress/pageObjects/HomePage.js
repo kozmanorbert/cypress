@@ -20,7 +20,7 @@ class HomePage{
     }
 
     createScreenshotInFirstElement(){
-        cy.get("@firstElementInPopularList").screenshot({ padding: 10 })
+        cy.get("ul#homefeatured [alt='Faded Short Sleeve T-shirts']").screenshot()
     }
     
 }

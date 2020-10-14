@@ -1,14 +1,6 @@
 {
     "baseUrl": "http://automationpractice.com", 
     "viewportWidth": 1920,
-    "viewportHeight": 1080,
+    "viewportHeight": 1080
 
-    "reporter": "mochawesome",
-    "reporterOptions": {
-    "reportDir": "cypress/results",
-    "overwrite": false,
-    "html": true,
-    "json": false,
-    "timestamp": "mm-dd-yyyy_HH:MM"
-  }
 }
