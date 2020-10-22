@@ -13,7 +13,7 @@
 // the project's config changing)
 module.exports = (on, config) => {
   on('before:browser:launch', (browser = {}, launchOptions) => {
-    if (browser.family === 'chromium' && browser.name !== 'electron') {
+    if (browser.family === 'chromium' && browser.name !== 'electron' && browser.name !== 'chrome') {
       launchOptions.args.push('--disable-dev-shm-usage')
     }
 
